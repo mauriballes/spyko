@@ -1,0 +1,18 @@
+@import "../../styles/colors";
+
+.navbar {
+  background-color: $primary-dark;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbarHeader {
+  text-align: center;
+}
+
+.navbarBrand {
+  color: #fff;
+}

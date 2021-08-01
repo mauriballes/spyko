@@ -1,0 +1,7 @@
+@import "../../styles/colors";
+
+.container {
+  background-color: $light;
+  min-height: calc(100vh - 120px);
+  padding: 20px;
+}

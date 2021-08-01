@@ -1,7 +1,13 @@
 import React from "react";
 
+import Container from "../../components/container/Container";
+
 function NotFound() {
-  return <h1>404 Not Found</h1>;
+  return (
+    <Container>
+      <h2>404 Not Found</h2>
+    </Container>
+  );
 }
 
 export default NotFound;

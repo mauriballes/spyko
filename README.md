@@ -1,2 +1,3 @@
 # spyko
-Catalog Frontend using Firebase
+
+Catalog Frontend using multiple providers
