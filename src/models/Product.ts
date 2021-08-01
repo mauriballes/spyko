@@ -1,4 +1,4 @@
-export declare interface Product {
+export declare interface IProduct {
   id: number;
   name: string;
   description: string;

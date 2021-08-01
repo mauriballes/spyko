@@ -1,6 +1,6 @@
 const paths = {
   home: "/",
-  detail: "/detail/:product",
+  detail: "/detail/:productId",
 };
 
 export default paths;
