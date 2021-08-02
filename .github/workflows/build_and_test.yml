@@ -33,5 +33,5 @@ jobs:
 
       - name: npm build and test
         run: |
-          npm run build --if-present
+          npm install
           npm test
