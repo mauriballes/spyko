@@ -5,24 +5,28 @@ import Container from "../../components/container/Container";
 import Service from "../../services";
 import type { IProduct } from "../../models/Product";
 
-function Home() {
-  const [products, setProducts] = useState<IProduct[]>([]);
+type HomeProps = {
+  productsList?: IProduct[];
+};
+
+function Home({ productsList = [] }: HomeProps) {
+  const [products, setProducts] = useState<IProduct[]>(productsList);
 
   useEffect(() => {
     async function fetchProducts() {
-      const products: IProduct[] = await Service.getProductList();
-      setProducts(products);
+      const productsFetched: IProduct[] = await Service.getProductList();
+      setProducts(productsFetched);
     }
 
-    fetchProducts();
-  }, []);
+    if (products.length === 0) fetchProducts();
+  }, [products]);
 
   return (
     <Container>
       <h2>Home</h2>
       <ul>
         {products.map((item: IProduct) => (
-          <li>{item.name}</li>
+          <li key={item.id}>{item.name}</li>
         ))}
       </ul>
     </Container>

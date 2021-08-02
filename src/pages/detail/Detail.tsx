@@ -10,20 +10,24 @@ type DetailUrlParams = {
   productId: string;
 };
 
-function Detail() {
+type DetailProps = {
+  productItem?: IProduct | null;
+};
+
+function Detail({ productItem = null }: DetailProps) {
   const { productId } = useParams<DetailUrlParams>();
-  const [product, setProduct] = useState<IProduct | null>(null);
+  const [product, setProduct] = useState<IProduct | null>(productItem);
 
   useEffect(() => {
     async function fetchProductDetail() {
-      const product: IProduct | null = await Service.getProductDetail(
+      const productFetched: IProduct | null = await Service.getProductDetail(
         productId
       );
-      setProduct(product);
+      setProduct(productFetched);
     }
 
-    fetchProductDetail();
-  }, [productId]);
+    if (product === null) fetchProductDetail();
+  }, [productId, product]);
 
   return (
     <Container>
